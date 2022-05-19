@@ -1,28 +1,54 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-  </div>
+  <v-app>
+    <AppBar></AppBar>
+
+    <v-main>
+      <ScheduleGrid2></ScheduleGrid2>
+      <v-btn fab
+             elevation="2"
+             bottom
+             right
+             fixed
+             @click="dialog=true"
+      >add task</v-btn>
+
+      <AddTaskPopUp dialog="dialog"></AddTaskPopUp>
+    </v-main>
+  </v-app>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+
+import AppBar from "@/components/AppBar";
+// import ScheduleGrid from "@/components/ScheduleGrid";
+import ScheduleGrid2 from "@/components/ScheduleGrid2";
+import AddTaskPopUp from "@/components/AddTaskPopUp";
+
 
 export default {
   name: 'App',
-  components: {
-    HelloWorld
-  }
-}
-</script>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
+  components: {
+    AddTaskPopUp,
+    ScheduleGrid2,
+    AppBar,
+  },
+
+  beforeMount() {
+    this.data().dialog = false
+  },
+
+  data: () => ({
+    dialog: false,
+    method:{
+      openDialog()
+      {
+
+      }
+
+
+    }
+    //q
+  }),
+};
+</script>
